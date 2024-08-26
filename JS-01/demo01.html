@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Tiêu đề</h1>
+    <button onclick="alert('Xin chào')">click</button>
+    <button onclick="changeH1Color()">Đổi màu h1</button>
+    <button onclick="changeH1Text()">Đổi chữ thẻ h1</button>
+    <button onclick="addNewTag()">Thêm nội dung mới</button>
+    <button onclick="printConsole()">5 + 6 = ??</button>
+</body>
+<script>
+    function changeH1Color() {
+        //document: là toàn bộ trang web
+        //getElementsByTagName: là tìm kiếm tất cả các thẻ theo tên
+        //[0] : lấy ra thẻ đầu tiên.
+        //.style.color: thay đổi style của thẻ
+        document.getElementsByTagName("h1")[0].style.color = 'red';
+    }
+    const full_name = "AAA" //snake case
+    const fullName = "AAA"  //camel case
+    const fullname = "AAA"
+
+    //template string
+    let str3 = `âsas
+    âsa
+    âsas`;
+
+    let str = ""; // Rỗng có biết nhưng k có giá trị
+    let str1 = null; // Có biến nhưng không có ô nhớ, chưa khởi tạo
+    console.log(name) //Biến chưa khởi tạo nhưng vẫn dùng "undefind"
+
+    let str2 = "Trần Văn Hà";
+</script>
+
+<script src="./js/demo01.js"></script>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function printMark(mark) {
+        if (mark >= 85) {
+            console.log('A')
+        } else if (70 <= mark && mark < 85) {
+            console.log("B")
+        } else if (40 <= mark && mark < 70) {
+            console.log("C")
+        } else {
+            console.log("D")
+        }
+    }
+    printMark(84);
+    function max(a, b) {
+        if (a > b) {
+            console.log(a)
+        } else if (b > a) {
+            console.log(b);
+        } else {
+            console.log("Hai số bằng nhau");
+        }
+    }
+    max(10, 20);
+    function checkNumber(num) {
+        if (num > 0) {
+            console.log("Số dương");
+        } else if (num < 0) {
+            console.log("Số âm");
+        } else {
+            console.log("Số 0");
+        }
+    }
+    checkNumber(-10)
+    function checkEvenOdd(num) {
+        if (num % 2 === 0) {
+            console.log("Số chẵn");
+        } else {
+            console.log("Số lẻ");
+        }
+    }
+    checkEvenOdd(13)
+    function checkDivisible(num) {
+        if (num % 3 === 0 && num % 5 === 0) {
+            console.log("Chia hết cho cả 3 và 5");
+        } else {
+            console.log("Không chia hết cho cả 3 và 5");
+        }
+    }
+    checkDivisible(15)
+    function checkSum(a, b, c) {
+        if (a + b === c) {
+            console.log("Đúng");
+        } else {
+            console.log("Sai");
+        }
+    }
+    checkSum(3, 2, 5)
+</script>
+
+</html>
