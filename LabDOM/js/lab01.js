@@ -8,6 +8,13 @@ for (let i = 0; i < newLi.length; i++) {
     ul.appendChild(li);
 }
 
+//Dùng jquery
+// $(document).ready(function () { // Chời đợi HTML load xong
+//     //const ul = document.getElementById('list');
+//     const ul = $("#list");
+//     ul.append("<li>Item 8</li>")
+// })
+
 //2. Sửa nội dung cho thẻ <li> 1 thành màu đỏ (color)
 document.querySelector("#list li:nth-child(1)").style.color = 'red';
 

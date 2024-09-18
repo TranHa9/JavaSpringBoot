@@ -130,7 +130,6 @@ save.addEventListener('click', function () {
     if (!validate()) {
         return;
     } else if (dataEdit) {
-        console.log('abc')
         dataEdit.name = username.value.trim();
         dataEdit.birthday = birthday.value;
         dataEdit.phone = phone.value.trim();
@@ -194,7 +193,7 @@ function validate() {
         err.innerHTML = 'Ngày sinh không được trống';
         birthday.insertAdjacentElement('afterend', err);
     }
-    const regex = /^\d{10}$/;
+    const regex = /^0\d{9}$/;
     if (phone.value.trim() === '') {
         errors.push('Số điện thoại không được trống');
         const err = document.createElement('span');
