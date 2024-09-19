@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="stylesheet" href="./css/sudent-manage.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-form">
+            <h2>Student form</h2>
+            <form id="studentForm">
+                <div>
+                    <div class="form-input">
+                        <label>Name</label>
+                        <input id="name" type="text">
+                    </div>
+                    <span class="error error-name"></span>
+                </div>
+                <div>
+                    <div class="form-input">
+                        <label>Birthday</label>
+                        <input id="birthday" type="date">
+                    </div>
+                    <span class="error error-birthday"></span>
+                </div>
+                <div>
+                    <div class="form-input">
+                        <label>Mobile phone</label>
+                        <input id="phone" type="text">
+                    </div>
+                    <span class="error error-phone"></span>
+                </div>
+                <div>
+                    <div class="form-input">
+                        <label>Hometown</label>
+                        <input id="hometown" type="text">
+                    </div>
+                    <span class="error error-hometown"></span>
+                </div>
+            </form>
+            <div class="btn-form">
+                <button type="button" class="save">Save</button>
+                <button type="button" class="reset">Reset</button>
+            </div>
+        </div>
+        <div class="content-table">
+            <table id="table">
+                <thead>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Mobile phone</th>
+                    <th>Hometown</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>0</td>
+                        <td>Trần Văn Hà</td>
+                        <td>20/11/1999</td>
+                        <td>0999999999</td>
+                        <td>Nam Định</td>
+                        <td>
+                            <button type="button" class="edit">Edit</button>
+                            <button type="button" class="delete">Delete</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="height: 500px">
+
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./js/sudent-manage.js"></script>
+
+</html>

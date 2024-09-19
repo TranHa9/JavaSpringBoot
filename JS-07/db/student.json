@@ -1,0 +1,39 @@
+{
+  "students": [
+    {
+      "name": "Hugo Norsister",
+      "birthday": "21/11/2004",
+      "phone": "0167843633",
+      "hometown": "Lingbeizhou",
+      "id": "1"
+    },
+    {
+      "name": "Reggie Duprey",
+      "birthday": "10/11/1991",
+      "phone": "0349847066",
+      "hometown": "Anren",
+      "id": "2"
+    },
+    {
+      "name": "Tarah Dodworth",
+      "birthday": "02/05/1990",
+      "phone": "0043368414",
+      "hometown": "Tanggulangin",
+      "id": "3"
+    },
+    {
+      "name": "Margery Lowndesbrough",
+      "birthday": "17/02/1993",
+      "phone": "0926677111",
+      "hometown": "Ramos",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "name": "Hà",
+      "birthday": "11/09/2024",
+      "phone": "0123456789",
+      "hometown": "Nam Định"
+    }
+  ]
+}

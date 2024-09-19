@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+.content-form {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 500px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    padding: 0px 50px 20px 50px;
+}
+
+#studentForm {
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-input {
+    display: flex;
+    align-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+label {
+    display: inline-block;
+    width: 135px;
+    align-content: center;
+}
+
+.form-input input {
+    border: 1px solid #ccc;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    width: 100%;
+}
+
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    text-align: right;
+}
+
+.d-none {
+    display: none;
+}
+
+.save,
+.reset,
+.delete,
+.edit {
+    padding: 5px 20px 5px 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-form {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+.content-table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-table {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+.checkbox {
+    width: 100%;
+    height: 30px;
+}
