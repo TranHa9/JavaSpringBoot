@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Adress</th>
+                    <th>GPA</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sinhVien: ${danhSachSinhVien}">
+                <td th:text="${sinhVien.id}"></td>
+                <td th:text="${sinhVien.name}"></td>
+                <td th:text="${sinhVien.address}"></td>
+                <td th:text="${sinhVien.gpa}"></td>
+            </tr>
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td>Trần Văn Hà</td>-->
+<!--                    <td>Nam Định</td>-->
+<!--                    <td>9.0</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>2</td>-->
+<!--                    <td>Nguyễn Văn A</td>-->
+<!--                    <td>Hà Nội</td>-->
+<!--                    <td>8.0</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>3</td>-->
+<!--                    <td>Nguyễn Văn B</td>-->
+<!--                    <td>Hà Nội</td>-->
+<!--                    <td>7.0</td>-->
+<!--                </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

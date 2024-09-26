@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh sách các dòng sản phẩm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Brand</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sanPham : ${danhSachSanPham}">
+                <td th:text="${sanPham.id}"></td>
+                <td th:text="${sanPham.name}"></td>
+                <td th:text="${sanPham.description}"></td>
+                <td th:text="${sanPham.price}"></td>
+                <td th:text="${sanPham.brand}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
