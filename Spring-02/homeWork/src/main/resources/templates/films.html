@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách các bộ phim</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên phim</th>
+            <th>Thể loại</th>
+            <th>Đạo diễn</th>
+            <th>Thời lượng</th>
+            <th>Mô tả</th>
+            <th>Phát hành</th>
+            <th>Đối tượng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="phim : ${danhSachPhim}">
+            <td th:text="${phim.id}"></td>
+            <td th:text="${phim.name}"></td>
+            <td th:text="${phim.genre}"></td>
+            <td th:text="${phim.director}"></td>
+            <td th:text="${phim.duration}"></td>
+            <td th:text="${phim.description}"></td>
+            <td th:text="${phim.publishedDate}"></td>
+            <td th:text="${phim.category}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách các cuốn sach</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>NXB</th>
+            <th>Thể loại</th>
+            <th>Giá tiền</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tungCuonSach: ${danhSachCuonSach}">
+            <td th:text="${tungCuonSach.id}"></td>
+            <td th:text="${tungCuonSach.name}"></td>
+            <td th:text="${tungCuonSach.author}"></td>
+            <td th:text="${tungCuonSach.publishedYear}"></td>
+            <td th:text="${tungCuonSach.category}"></td>
+            <td th:text="${tungCuonSach.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
