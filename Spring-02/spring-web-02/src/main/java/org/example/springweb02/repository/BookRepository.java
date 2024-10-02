@@ -24,4 +24,14 @@ public class BookRepository {
         return null;
     }
 
+    public void save(Book book) {
+        List<Book> books = getAll();
+        books.sort((b1, b2) -> b2.getId() - b1.getId());
+        for (int i = 0; i < books.size(); i++) {
+
+        }
+        book.setId(books.get(0).getId() + 1);
+        books.add(book);
+        fileUtil.writeDataToFile(books, fileName);
+    }
 }

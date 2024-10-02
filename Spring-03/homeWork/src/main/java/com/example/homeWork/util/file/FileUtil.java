@@ -1,11 +1,10 @@
-package org.example.springweb02.util.file;
+package com.example.homeWork.util.file;
 
 
+import com.example.homeWork.constant.DateTimeConstant;
+import com.example.homeWork.util.DataUtil;
+import com.example.homeWork.util.StringUtil;
 import com.google.gson.*;
-import org.example.springweb02.constant.DateTimeConstant;
-import org.example.springweb02.util.DataUtil;
-import org.example.springweb02.util.StringUtil;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.FileReader;
@@ -41,7 +40,6 @@ public class FileUtil<T> implements DataWritable<T>, DataReadable<T> {
             return;
         }
         File file = new File("src/main/resources/" + fileName);
-//        String absolutePath = new ClassPathResource(fileName).getFile().getAbsolutePath();
         try (FileWriter fileWriter = new FileWriter(file.getAbsolutePath())) {
             String rs = gson.toJson(data);
             fileWriter.write(rs);

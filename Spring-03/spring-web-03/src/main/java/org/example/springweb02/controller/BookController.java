@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -29,15 +28,16 @@ public class BookController {
     // Spring beans
     // là 1 object java nhung được quản lý bởi Spring IoC container
     // khong cần khởi tạo bean cũng có thể sử dug mà khng bị loi null
+
     @GetMapping("/book-creation-form")
-    public String showBookCreateForm(Model model) {
+    public String showBookCreationForm(Model model) {
         BookCreationRequest request = new BookCreationRequest();
-        model.addAttribute("sachTaoMoi", request);
+        model.addAttribute("quyenSachMaToiMuonTaoMoi", request);
         return "book-creation";
     }
 
     @PostMapping
-    public String createBook(@ModelAttribute(name = "sachTaoMoi") BookCreationRequest request) {
+    public String createBook(@ModelAttribute(name = "quyenSachMaToiMuonTaoMoi") BookCreationRequest request) {
         bookService.save(request);
         return "redirect:/books";
     }

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,9 +21,10 @@ public class BookService {
     }
 
     public void save(BookCreationRequest request) {
+        // convert tu request sang entity
         Book book = new Book();
-        book.setName(request.getName());
-        book.setAuthor(request.getAuthor());
+        book.setName(request.getTenSach());
+        book.setAuthor(request.getTacGia());
         book.setPublishedYear(request.getPublishedYear());
         book.setPublisher(request.getPublisher());
         book.setTotalPage(request.getTotalPage());
@@ -36,12 +36,6 @@ public class BookService {
     }
 
     public void delete(int id) {
-        List<Book> books = getAll();
-        List<Book> ketQua = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getId() != id) {
-                //ketQua.add(books);
-            }
-        }
+        bookRepository.delete(id);
     }
 }
