@@ -1,7 +1,9 @@
 package com.example.homeWork.repository;
 
 import com.example.homeWork.entity.Film;
+import com.example.homeWork.model.request.FilmUpdateRequest;
 import com.example.homeWork.util.file.FileUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -43,21 +45,44 @@ public class FilmRepository {
         fileUtil.writeDataToFile(films, fileName);
     }
 
-    public Film findById(int id) {
+    public FilmUpdateRequest findById(int id) {
         List<Film> films = getAll();
         for (Film film : films) {
             if (film.getId() == id) {
-                return film;
+                System.out.println(film);
+                return convertToFilmUpdateRequest(film);
             }
         }
         return null;
     }
 
-    public void update(Film filmToUpdate) {
+    private FilmUpdateRequest convertToFilmUpdateRequest(Film film) {
+        FilmUpdateRequest request = new FilmUpdateRequest();
+        request.setId(film.getId());
+        request.setName(film.getName());
+        request.setDirector(film.getDirector());
+        request.setDuration(film.getDuration());
+        request.setGenre(film.getGenre());
+        request.setPublishedDate(film.getPublishedDate());
+        request.setGenre(film.getGenre());
+        request.setCategory(film.getCategory());
+        return request;
+    }
+
+    public void update(FilmUpdateRequest filmToUpdate) {
         List<Film> films = getAll();
         for (int i = 0; i < films.size(); i++) {
             if (films.get(i).getId() == filmToUpdate.getId()) {
-                films.set(i, filmToUpdate);
+                Film updatedFilm = new Film();
+                updatedFilm.setId(filmToUpdate.getId());
+                updatedFilm.setName(filmToUpdate.getName());
+                updatedFilm.setDirector(filmToUpdate.getDirector());
+                updatedFilm.setDuration(filmToUpdate.getDuration());
+                updatedFilm.setGenre(filmToUpdate.getGenre());
+                updatedFilm.setPublishedDate(filmToUpdate.getPublishedDate());
+                updatedFilm.setDescription(filmToUpdate.getDescription());
+                updatedFilm.setCategory(filmToUpdate.getCategory());
+                films.set(i, updatedFilm);
                 break;
             }
         }

@@ -2,6 +2,7 @@ package com.example.homeWork.service;
 
 import com.example.homeWork.entity.Film;
 import com.example.homeWork.model.request.FilmCreationRequest;
+import com.example.homeWork.model.request.FilmUpdateRequest;
 import com.example.homeWork.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,21 +36,21 @@ public class FilmService {
         filmRepository.delete(id);
     }
 
-    public Film findById(int id) {
+    public FilmUpdateRequest findById(int id) {
         return filmRepository.findById(id);
     }
 
-    public void updateFilm(Film film) {
-        Film filmToUpdate = filmRepository.findById(film.getId());
-
-        filmToUpdate.setName(film.getName());
-        filmToUpdate.setDirector(film.getDirector());
-        filmToUpdate.setDuration(film.getDuration());
-        filmToUpdate.setGenre(film.getGenre());
-        filmToUpdate.setPublishedDate(film.getPublishedDate());
-        filmToUpdate.setDescription(film.getDescription());
-        filmToUpdate.setCategory(film.getCategory());
+    public void updateFilm(FilmUpdateRequest request) {
+        FilmUpdateRequest filmToUpdate = filmRepository.findById(request.getId());
+        filmToUpdate.setName(request.getName());
+        filmToUpdate.setDirector(request.getDirector());
+        filmToUpdate.setDuration(request.getDuration());
+        filmToUpdate.setGenre(request.getGenre());
+        filmToUpdate.setPublishedDate(request.getPublishedDate());
+        filmToUpdate.setDescription(request.getDescription());
+        filmToUpdate.setCategory(request.getCategory());
 
         filmRepository.update(filmToUpdate);
     }
+
 }

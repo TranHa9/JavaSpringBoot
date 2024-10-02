@@ -2,6 +2,7 @@ package com.example.homeWork.controller;
 
 import com.example.homeWork.entity.Film;
 import com.example.homeWork.model.request.FilmCreationRequest;
+import com.example.homeWork.model.request.FilmUpdateRequest;
 import com.example.homeWork.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,15 +45,15 @@ public class FilmController {
 
     @GetMapping("/{id}/edit")
     public String updateFormFilm(@PathVariable("id") int id, Model model) {
-        Film film = filmService.findById(id);
-        System.out.println(film.getPublishedDate());
-        model.addAttribute("filmUpdate", film);
+        FilmUpdateRequest filmUpdateRequest = filmService.findById(id);
+        System.out.println(filmUpdateRequest);
+        model.addAttribute("filmUpdate", filmUpdateRequest);
         return "film-update";
     }
 
     @PostMapping("/update")
-    public String updateFilm(@ModelAttribute(name = "filmUpdate") Film film) {
-        filmService.updateFilm(film);
+    public String updateFilm(@ModelAttribute(name = "filmUpdate") FilmUpdateRequest request) {
+        filmService.updateFilm(request);
         return "redirect:/films";
     }
 }
