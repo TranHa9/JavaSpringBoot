@@ -15,7 +15,6 @@ import java.util.List;
 public class FilmService {
     @Autowired
     FilmRepository filmRepository;
-
     @Autowired
     ObjectMapper objectMapper;
 
@@ -46,9 +45,9 @@ public class FilmService {
         return objectMapper.convertValue(film, FilmResponse.class);
     }
 
-    public void updateFilm(FilmUpdateRequest request) {
-        Film film = objectMapper.convertValue(request, Film.class);
-        filmRepository.update(film);
-    }
 
+    public void updateFilm(FilmUpdateRequest request) {
+        Film filmEntity = objectMapper.convertValue(request, Film.class);
+        filmRepository.update(filmEntity);
+    }
 }

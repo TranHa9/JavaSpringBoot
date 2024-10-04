@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update film</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        input {
+            height: 30px;
+            width: 70%;
+        }
+
+        textarea {
+            width: 70%;
+            height: 80px;
+        }
+
+        label {
+            text-align: left;
+            display: inline-block;
+            width: 30%;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background-color: #20af29;
+            color: white;
+            border: 1px solid #20af29;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        button:hover, button:active {
+            background-color: #0d8715;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Cập nhật phim</h1>
+
+    <form action="/films/update" method="POST" th:object="${filmUpdate}">
+        <div class="form-group">
+            <label for="name">Tên phim</label>
+            <input type="text" id="name" name="name" th:field="*{name}"/>
+            <input type="hidden" name="id" th:value="${filmUpdate.id}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Thể loại</label>
+            <input type="text" id="genre" name="genre" th:field="*{genre}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="director">Đạo diễn</label>
+            <input type="text" id="director" name="director" th:field="*{director}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Thời lượng</label>
+            <input type="text" id="duration" name="duration" th:field="*{duration}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Mô tả</label>
+            <textarea id="description" name="description" th:field="*{description}"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="publishedDate">Phát hành</label>
+            <!--            <input type="date" id="publishedDate" name="publishedDate" th:field="*{publishedDate}"/>-->
+            <input type="date" id="publishedDate" name="publishedDate" th:value="${filmUpdate.publishedDate}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Đối tượng</label>
+            <input type="text" id="category" name="category" th:field="*{category}"/>
+        </div>
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

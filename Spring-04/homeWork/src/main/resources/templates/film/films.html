@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách các bộ phim</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .title {
+            text-align: center;
+        }
+
+        .btn-creation {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding : 10px 20px;
+            background-color: #38c840;
+            border: 1px solid #38c840;
+            border-radius: 5px;
+        }
+
+        .btn-creation:hover, .btn-creation:active {
+            background-color: #1eb527;
+        }
+
+        .ui-button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="title">
+        <h1>QUẢN LÝ PHIM</h1>
+    </div>
+    <div class="ui-button">
+        <a href="/films/film-creation-form" class="btn-creation">Create</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên phim</th>
+            <th>Thể loại</th>
+            <th>Đạo diễn</th>
+            <th>Thời lượng</th>
+            <th>Mô tả</th>
+            <th>Phát hành</th>
+            <th>Đối tượng</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="phim : ${danhSachPhim}">
+            <td th:text="${phim.id}"></td>
+            <td th:text="${phim.name}"></td>
+            <td th:text="${phim.genre}"></td>
+            <td th:text="${phim.director}"></td>
+            <td th:text="${phim.duration}"></td>
+            <td th:text="${phim.description}"></td>
+            <td th:text="${phim.publishedDate}"></td>
+            <td th:text="${phim.category}"></td>
+            <td>
+                <a role="button" class="mr-3 text-primary"
+                   th:href="@{'/films/'+${phim.id}+'/edit'}">
+                    Edit
+                </a>
+                <a role="button" class="text-danger"
+                   th:href="@{'/films/' + ${phim.id} + '/delete'}"
+                   th:data-confirm-delete="|Bạn có chắc chăn muốn xóa bộ phim này không?|"
+                   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                >
+                    <!--                    <i class="fas fa-trash"></i>-->
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

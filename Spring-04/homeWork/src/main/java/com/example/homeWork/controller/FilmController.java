@@ -22,14 +22,14 @@ public class FilmController {
     public String getFlims(Model model) {
         List<FilmResponse> films = filmService.getAll();
         model.addAttribute("danhSachPhim", films);
-        return "films";
+        return "film/films";
     }
 
     @GetMapping("/film-creation-form")
     public String showCreateFormFilm(Model model) {
         FilmCreationRequest request = new FilmCreationRequest();
         model.addAttribute("filmCreate", request);
-        return "film-creation";
+        return "film/film-creation";
     }
 
     @PostMapping
@@ -48,7 +48,7 @@ public class FilmController {
     public String updateFormFilm(@PathVariable("id") int id, Model model) {
         FilmResponse filmResponse = filmService.findById(id);
         model.addAttribute("filmUpdate", filmResponse);
-        return "film-update";
+        return "film/film-update";
     }
 
     @PostMapping("/update")
