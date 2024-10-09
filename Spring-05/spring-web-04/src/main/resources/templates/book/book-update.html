@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a book</title>
+
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        input {
+            height: 30px;
+            width: 70%;
+        }
+
+        textarea {
+            width: 70%;
+            height: 80px;
+        }
+
+        label {
+            text-align: left;
+            display: inline-block;
+            width: 30%;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background-color: #20af29;
+            color: white;
+            border: 1px solid #20af29;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        button:hover, button:active {
+            background-color: #0d8715;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tạo mới sách</h1>
+
+    <form action="/books/update" method="post" th:object="${motCuonSach}">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" th:field="*{name}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" th:field="*{author}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="publishedYear">Published year</label>
+            <input type="number" id="publishedYear" name="publishedYear" th:field="*{publishedYear}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" name="publisher" th:field="*{publisher}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="totalPage">Total page</label>
+            <input type="number" id="totalPage" name="totalPage"
+                   min="1" th:field="*{totalPage}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" th:field="*{category}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price"
+                   min="1000" th:field="*{price}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" th:field="*{description}"></textarea>
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách các bạn đọc</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /*table, tr, th, td {*/
+        /*    border: 1px solid black;*/
+        /*    border-collapse: collapse;*/
+        /*}*/
+
+        .title {
+            text-align: center;
+        }
+
+        .btn-creation {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            background-color: #38c840;
+            border: 1px solid #38c840;
+            border-radius: 5px;
+        }
+
+        .btn-creation:hover, .btn-creation:active {
+            background-color: #1eb527;
+        }
+
+        .ui-button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div th:insert="fragments/navbar :: thanh-menu"></div>
+
+<div class="container">
+    <div class="title">
+        <h1>QUẢN LÝ BẠN ĐỌC</h1>
+    </div>
+    <div class="ui-button">
+        <!--        <a href="/books/book-creation-form" class="btn-creation">Create</a>-->
+        <!--        <a th:href="${'/books/book-creation-form'}">Create</a>-->
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Tạo mới</button>
+    </div>
+
+    <div th:insert="fragments/reader-creation-modal :: modal-tao-moi-ban-doc"></div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên bạn đọc</th>
+            <th>Email</th>
+            <th>SDT</th>
+            <th>Địa chỉ</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="banDoc: ${danhSachBanDoc}">
+            <td th:text="${banDoc.id}"></td>
+            <td th:text="${banDoc.name}"></td>
+            <td th:text="${banDoc.email}"></td>
+            <td th:text="${banDoc.phone}"></td>
+            <td th:text="${banDoc.address}"></td>
+            <td>
+                <a role="button" class="text-danger"
+                   th:href="@{'/readers/' + ${banDoc.id} + '/delete'}"
+                   th:data-confirm-delete="|Bạn có chắc chắn muốn xóa bạn đọc này?|"
+                   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                >
+                    <!--                    <i class="fas fa-trash"></i>-->
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
