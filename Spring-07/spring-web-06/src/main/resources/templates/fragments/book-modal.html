@@ -1,0 +1,61 @@
+<div th:fragment="book-modal" class="modal fade"
+     id="book-modal" tabindex="-1"
+     aria-labelledby="book-creation-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tạo mới sách</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="book-form">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" id="author" name="author" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="publishedYear" class="form-label">Published year</label>
+                        <input type="number" id="publishedYear" name="publishedYear" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="publisher" class="form-label">Publisher</label>
+                        <input type="text" id="publisher" name="publisher" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="totalPage" class="form-label">Total page</label>
+                        <input type="number" id="totalPage" name="totalPage" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <input type="text" id="category" name="category" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" id="price" name="price" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="description" class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-save-book">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>

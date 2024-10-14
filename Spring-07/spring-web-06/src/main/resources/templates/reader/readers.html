@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/common/head :: html_head(pageTitle='Danh sách các bạn đọc')}">
+<body>
+
+<div th:insert="fragments/common/navbar :: thanh-menu"></div>
+
+<div class="container mt-3">
+    <h1 class="text-center">QUẢN LÝ BẠN ĐỌC</h1>
+    <div class="row">
+        <div class="col mb-4">
+            <button class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reader-modal"
+            >
+                Create
+            </button>
+
+            <div th:insert="~{fragments/reader-modal :: reader-modal}"></div>
+
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên bạn đọc</th>
+            <th>Email</th>
+            <th>SDT</th>
+            <th>Địa chỉ</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="banDoc: ${danhSachBanDoc}">
+            <td th:text="${banDoc.id}"></td>
+            <td th:text="${banDoc.name}"></td>
+            <td th:text="${banDoc.email}"></td>
+            <td th:text="${banDoc.phone}"></td>
+            <td th:text="${banDoc.address}"></td>
+            <td>
+                <span role="button" class="text-primary btn-update"
+                      th:attr="reader-id=${banDoc.id}"
+                >
+                    <i class="fa-solid fa-pencil"></i>
+                </span>
+                <span role="button" class="text-danger btn-delete"
+                      th:attr="reader-id=${banDoc.id}"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+<script src="js/common.js"></script>
+<script src="js/reader/reader.js"></script>
