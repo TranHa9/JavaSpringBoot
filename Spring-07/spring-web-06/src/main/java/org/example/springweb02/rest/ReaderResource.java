@@ -17,27 +17,27 @@ public class ReaderResource {
     ReaderService readerService;
 
     @GetMapping
-    public List<ReaderResponse> getAll(){
+    public List<ReaderResponse> getAll() {
         return readerService.getAll();
     }
 
     @PostMapping
-    public ReaderResponse createReader(@RequestBody @Valid ReaderCreationRequest request){
+    public ReaderResponse createReader(@RequestBody @Valid ReaderCreationRequest request) {
         return readerService.create(request);
     }
 
     @GetMapping("/{id}")
-    public ReaderResponse getDetail(@PathVariable int id){
+    public ReaderResponse getDetail(@PathVariable int id) {
         return readerService.getDetail(id);
     }
 
     @PutMapping("/{id}")
-    public ReaderResponse updateReader(@PathVariable int id, @RequestBody ReaderUpdateRequest request){
+    public ReaderResponse updateReader(@PathVariable int id, @Valid @RequestBody ReaderUpdateRequest request) {
         return readerService.update(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteReader(@PathVariable int id){
+    public void deleteReader(@PathVariable int id) {
         readerService.deleteReader(id);
     }
 }

@@ -1,6 +1,7 @@
 package org.example.springweb02.repository;
 
 import org.example.springweb02.entity.Reader;
+import org.example.springweb02.exceptionhandling.exception.ObjectNotFoundException;
 import org.example.springweb02.model.request.ReaderUpdateRequest;
 import org.example.springweb02.util.file.FileUtil;
 import org.springframework.stereotype.Repository;
@@ -49,7 +50,7 @@ public class ReaderRepository {
         return readers.stream()
                 .filter(book -> book.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new ObjectNotFoundException("Không tin thấy thông tin bạn đọc có " + id));
     }
 
     public void update(ReaderUpdateRequest request) {

@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    // Thêm phương thức regex
+    $.validator.addMethod("regex", function (value, element, regexpr) {
+        return regexpr.test(value);
+    }, "Số điện thoại không hợp lệ");
+
     $("#reader-form").validate({
         onfocusout: false,
         onkeyup: false,
@@ -15,7 +20,7 @@ $(document).ready(function () {
             },
             "phone": {
                 required: true,
-                pattern: /^0\d{9}$/
+                regex: /^0\d{9}$/
             },
             "address": {
                 required: true,
@@ -33,7 +38,7 @@ $(document).ready(function () {
             },
             "phone": {
                 required: "Số điện thoại không được để trống!",
-                pattern: "Số điện thoại phải bắt đầu bằng số 0 và có đúng 10 chữ số"
+                regex: "Số điện thoại phải bắt đầu bằng số 0 và có đúng 10 chữ số"
             },
             "address": {
                 required: "Địa chỉ không được để trống!",
@@ -44,7 +49,7 @@ $(document).ready(function () {
     });
 
     $("#btn-save-reader").click(function (event) {
-        const isValidForm = $("#reader-modal").valid();
+        const isValidForm = $("#reader-form").valid();
         if (!isValidForm) {
             return;
         }
@@ -57,10 +62,10 @@ $(document).ready(function () {
     });
 
 
-
     // lấy thông tin 1 bạn đọc
     $(".btn-update").click(function (event) {
         const readerId = $(event.currentTarget).attr("reader-id");
+        $("#reader-form").validate().resetForm();
         $.ajax({
             url: '/api/v1/readers/' + readerId,
             type: 'GET',

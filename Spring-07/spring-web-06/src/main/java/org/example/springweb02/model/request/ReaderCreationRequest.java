@@ -16,15 +16,15 @@ public class ReaderCreationRequest {
     @Length(max = 100, message = "Tên bạn đọc không vượt quá 100 ký tự")
     String name;
 
-    @NotBlank(message = "Tên bạn đọc không được để trống!")
+    @NotBlank(message = "Tên email không được để trống!")
     @Email(message = "Email phải đúng định dạng email")
     String email;
 
-    @NotBlank(message = "Tên bạn đọc không được để trống!")
+    @NotBlank(message = "Số điện thoại không được để trống!")
     @Pattern(regexp = "^0\\d{9}$", message = "Số điện thoại phải bắt đầu bằng số 0 và có đúng 10 chữ số")
     String phone;
 
-    @NotBlank(message = "Tên bạn đọc không được để trống!")
+    @NotBlank(message = "Địa chỉ không được để trống!")
     @Length(max = 200, message = "Địa chỉ không quá 200 ký tự")
     String address;
 
