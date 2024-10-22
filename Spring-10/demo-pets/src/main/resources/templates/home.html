@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/common/head :: html_head(pageTitle='Our Dog Food')}">
+<body>
+<div class="container mt-5 mb-5">
+    <h1 class="text-center mb-4">Our Dog Food</h1>
+    <h2>Danh sách sản phẩm</h2>
+    <div class="row mt-5" id="product-list">
+        <div th:insert="~{fragments/order-modal :: order-modal}"></div>
+    </div>
+    <h2 class="mt-5">Form hẹn đặt khám</h2>
+    <form id="appointment-form">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Full Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="description" class="form-label">Message:</label>
+            <textarea rows="5" class="form-control" id="description" placeholder="Enter message"
+                      name="description"></textarea>
+        </div>
+    </form>
+    <button type="button" class="btn btn-primary" id="btn-send">Send</button>
+</div>
+</body>
+</html>
+<script src="/js/common.js"></script>
+<script src="/js/home.js"></script>

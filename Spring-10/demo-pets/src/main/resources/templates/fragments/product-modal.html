@@ -1,0 +1,44 @@
+<div th:fragment="product-modal" class="modal fade"
+     id="product-modal" tabindex="-1"
+     aria-labelledby="product-creation-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tạo sản phẩm mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="product-form">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" id="name" name="name" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="price" class="form-label">Giá:</label>
+                        <input type="number" id="price" name="price" class="form-control"/>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="description" class="form-label">Mô tả:</label>
+                        <textarea id="description" name="description" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageFile">Tải ảnh</label>
+                        <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*">
+                        <div class="row mt-5">
+                            <div class="col d-flex justify-content-center">
+                                <img id="image" class="rounded" style="width: 250px;" alt="ảnh"
+                                     src=""/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-save-product">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>

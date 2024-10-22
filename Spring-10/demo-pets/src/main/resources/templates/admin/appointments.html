@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/common/head :: html_head(pageTitle='Danh sách lịch khám')}">
+<body>
+<div th:insert="~{fragments/common/navbar :: thanh-menu}"></div>
+
+<div class="container mt-3">
+    <h1 class="text-center mb-5">Quản lý lịch khám</h1>
+    <div th:insert="~{fragments/appointment-modal :: appointment-modal}"></div>
+
+    <table class="table table-bordered table-striped table-hover mt-5">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên người đặt</th>
+            <th>SDT</th>
+            <th>Email</th>
+            <th>Nội dung</th>
+            <th>Trạng thái</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment: ${appointments}">
+            <td th:text="${appointment.id}"></td>
+            <td th:text="${appointment.name}"></td>
+            <td th:text="${appointment.phone}"></td>
+            <td th:text="${appointment.email}"></td>
+            <td th:text="${appointment.description}"></td>
+            <td th:text="${appointment.status}"></td>
+            <td>
+                        <span role="button" class="text-success btn-approve"
+                              th:attr="appointment-id=${appointment.id}"
+                        >
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                <span role="button" class="text-danger btn-reject"
+                      th:attr="appointment-id=${appointment.id}"
+                >
+                           <i class="fa-solid fa-circle-xmark"></i>
+                        </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+<script src="/js/common.js"></script>
+<script src="/js/appointment/appointment.js"></script>
